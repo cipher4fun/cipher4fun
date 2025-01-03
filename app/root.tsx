@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import "./tailwind.css";
 import "./i18n/config";
+import "katex/dist/katex.min.css";
 
 export const meta = () => {
   return [

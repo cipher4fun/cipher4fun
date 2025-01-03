@@ -67,21 +67,21 @@ export default function Visualization() {
             : ["digest", "standard"],
           image: "https://nextui.org/images/card-example-4.jpeg",
         },
-        {
-          id: "md5",
-          name: mounted ? t("categories.digest.md5.name") : "MD5",
-          description: mounted
-            ? t("categories.digest.md5.description")
-            : "128-bit hash function. Broken but historically significant",
-          stages: 8,
-          tags: mounted
-            ? [
-                t("categories.digest.md5.tags.digest"),
-                t("categories.digest.md5.tags.deprecated"),
-              ]
-            : ["digest", "deprecated"],
-          image: "https://nextui.org/images/card-example-4.jpeg",
-        },
+        // {
+        //   id: "md5",
+        //   name: mounted ? t("categories.digest.md5.name") : "MD5",
+        //   description: mounted
+        //     ? t("categories.digest.md5.description")
+        //     : "128-bit hash function. Broken but historically significant",
+        //   stages: 8,
+        //   tags: mounted
+        //     ? [
+        //         t("categories.digest.md5.tags.digest"),
+        //         t("categories.digest.md5.tags.deprecated"),
+        //       ]
+        //     : ["digest", "deprecated"],
+        //   image: "https://nextui.org/images/card-example-4.jpeg",
+        // },
       ],
     },
     {

@@ -40,6 +40,15 @@ const resources = {
               digest: "digest",
               standard: "standard",
             },
+            input: {
+              label: "Message to Hash",
+              placeholder: "Enter message...",
+              calculate: "Calculate Hash",
+              result: "Hash Result:",
+              steps: "Hashing Steps",
+              steps_desc: "Step-by-step visualization coming soon...",
+              intro: "Secure Hash Algorithms (SHA) is a family of cryptographic hash functions designed to provide fixed-size message digests with collision resistance."
+            }
           },
           md5: {
             name: "MD5",
@@ -111,6 +120,15 @@ const resources = {
               digest: "摘要",
               standard: "标准",
             },
+            input: {
+              label: "待哈希消息",
+              placeholder: "输入消息...",
+              calculate: "计算哈希",
+              result: "哈希结果：",
+              steps: "哈希步骤",
+              steps_desc: "分步骤可视化即将推出...",
+              intro: "安全散列算法(Secure Hash Algorithms) 是密码散列函数中的一族，用于生成具有抗碰撞性质且长度固定的消息摘要。"
+            }
           },
           md5: {
             name: "MD5",
