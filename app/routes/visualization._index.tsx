@@ -15,21 +15,21 @@ const algorithmCategories = [
     id: "symmetric",
     name: "Symmetric Cryptography",
     algorithms: [
-      {
-        id: "aes",
-        name: "Advanced Encryption Standard",
-        description:
-          "128/192/256-bit key block cipher, successor to DES. Widely used in TLS/SSL",
-        stages: 14,
-        tags: ["block-cipher", "standard"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
+      //   {
+      //     id: "aes",
+      //     name: "Advanced Encryption Standard",
+      //     description:
+      //       "128/192/256-bit key block cipher, successor to DES. Widely used in TLS/SSL",
+      //     stages: 14,
+      //     tags: ["block-cipher", "standard"],
+      //     image: "https://nextui.org/images/card-example-4.jpeg",
+      //   },
       {
         id: "des",
         name: "Data Encryption Standard",
         description:
           "56-bit key Feistel network block cipher. Historic NIST standard from 1977",
-        stages: 12,
+        stages: 1,
         tags: ["block-cipher", "legacy"],
         image: "https://nextui.org/images/card-example-4.jpeg",
       },
