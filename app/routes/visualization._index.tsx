@@ -2,6 +2,8 @@ import type { MetaFunction } from "@remix-run/node";
 import { Card, CardHeader, Image } from "@nextui-org/react";
 import MainLayout from "~/components/MainLayout";
 import { Link } from "@remix-run/react";
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,82 +12,120 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const algorithmCategories = [
-  {
-    id: "symmetric",
-    name: "Symmetric Cryptography",
-    algorithms: [
-      //   {
-      //     id: "aes",
-      //     name: "Advanced Encryption Standard",
-      //     description:
-      //       "128/192/256-bit key block cipher, successor to DES. Widely used in TLS/SSL",
-      //     stages: 14,
-      //     tags: ["block-cipher", "standard"],
-      //     image: "https://nextui.org/images/card-example-4.jpeg",
-      //   },
-      {
-        id: "des",
-        name: "Data Encryption Standard",
-        description:
-          "56-bit key Feistel network block cipher. Historic NIST standard from 1977",
-        stages: 1,
-        tags: ["block-cipher", "legacy"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
-    ],
-  },
-  {
-    id: "digest",
-    name: "Digest Algorithms",
-    algorithms: [
-      {
-        id: "sha",
-        name: "Secure Hash Algorithms",
-        description:
-          "SHA-1/SHA-2/SHA-3 family. Produces fixed-size message digests",
-        stages: 10,
-        tags: ["digest", "standard"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
-      {
-        id: "md5",
-        name: "MD5",
-        description:
-          "128-bit hash function. Broken but historically significant",
-        stages: 8,
-        tags: ["digest", "deprecated"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
-    ],
-  },
-  {
-    id: "asymmetric",
-    name: "Asymmetric Cryptography",
-    algorithms: [
-      {
-        id: "rsa",
-        name: "RSA Algorithm",
-        description:
-          "Public-key crypto based on factoring. Used for encryption & signatures",
-        stages: 18,
-        tags: ["public-key", "PKI"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
-      {
-        id: "ecc",
-        name: "Elliptic Curve Cryptography",
-        description:
-          "Public-key crypto using elliptic curves. Shorter keys than RSA",
-        stages: 16,
-        tags: ["public-key", "modern"],
-        image: "https://nextui.org/images/card-example-4.jpeg",
-      },
-    ],
-  },
-];
-
 export default function Visualization() {
+  const { t } = useTranslation();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const algorithmCategories = [
+    {
+      id: "symmetric",
+      name: mounted
+        ? t("categories.symmetric.title")
+        : "Symmetric Cryptography",
+      algorithms: [
+        {
+          id: "des",
+          name: mounted
+            ? t("categories.symmetric.des.name")
+            : "Data Encryption Standard",
+          description: mounted
+            ? t("categories.symmetric.des.description")
+            : "56-bit key Feistel network block cipher. Historic NIST standard from 1977.",
+          stages: 1,
+          tags: mounted
+            ? [
+                t("categories.symmetric.des.tags.block"),
+                t("categories.symmetric.des.tags.legacy"),
+              ]
+            : ["block-cipher", "legacy"],
+          image: "https://nextui.org/images/card-example-4.jpeg",
+        },
+      ],
+    },
+    {
+      id: "digest",
+      name: mounted ? t("categories.digest.title") : "Digest Algorithms",
+      algorithms: [
+        {
+          id: "sha",
+          name: mounted
+            ? t("categories.digest.sha.name")
+            : "Secure Hash Algorithms",
+          description: mounted
+            ? t("categories.digest.sha.description")
+            : "SHA-1/SHA-2/SHA-3 family. Produces fixed-size message digests",
+          stages: 10,
+          tags: mounted
+            ? [
+                t("categories.digest.sha.tags.digest"),
+                t("categories.digest.sha.tags.standard"),
+              ]
+            : ["digest", "standard"],
+          image: "https://nextui.org/images/card-example-4.jpeg",
+        },
+        {
+          id: "md5",
+          name: mounted ? t("categories.digest.md5.name") : "MD5",
+          description: mounted
+            ? t("categories.digest.md5.description")
+            : "128-bit hash function. Broken but historically significant",
+          stages: 8,
+          tags: mounted
+            ? [
+                t("categories.digest.md5.tags.digest"),
+                t("categories.digest.md5.tags.deprecated"),
+              ]
+            : ["digest", "deprecated"],
+          image: "https://nextui.org/images/card-example-4.jpeg",
+        },
+      ],
+    },
+    {
+      id: "asymmetric",
+      name: mounted
+        ? t("categories.asymmetric.title")
+        : "Asymmetric Cryptography",
+      algorithms: [
+        {
+          id: "rsa",
+          name: mounted ? t("categories.asymmetric.rsa.name") : "RSA Algorithm",
+          description: mounted
+            ? t("categories.asymmetric.rsa.description")
+            : "Public-key crypto based on factoring. Used for encryption & signatures",
+          stages: 18,
+          tags: mounted
+            ? [
+                t("categories.asymmetric.rsa.tags.public"),
+                t("categories.asymmetric.rsa.tags.pki"),
+              ]
+            : ["public-key", "PKI"],
+          image: "https://nextui.org/images/card-example-4.jpeg",
+        },
+        {
+          id: "ecc",
+          name: mounted
+            ? t("categories.asymmetric.ecc.name")
+            : "Elliptic Curve Cryptography",
+          description: mounted
+            ? t("categories.asymmetric.ecc.description")
+            : "Public-key crypto using elliptic curves. Shorter keys than RSA",
+          stages: 16,
+          tags: mounted
+            ? [
+                t("categories.asymmetric.ecc.tags.public"),
+                t("categories.asymmetric.ecc.tags.modern"),
+              ]
+            : ["public-key", "modern"],
+          image: "https://nextui.org/images/card-example-4.jpeg",
+        },
+      ],
+    },
+  ];
+
   return (
     <MainLayout>
       {/* Categories */}

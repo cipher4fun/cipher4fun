@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import "./i18n/config";
 
 export const meta = () => {
   return [

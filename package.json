@@ -11,15 +11,20 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@nextui-org/react": "^2.6.10",
     "@remix-run/node": "^2.15.2",
     "@remix-run/react": "^2.15.2",
     "@remix-run/serve": "^2.15.2",
     "d3": "^7.9.0",
     "framer-motion": "^11.15.0",
+    "i18next": "^24.2.0",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.4.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.2",
