@@ -47,8 +47,9 @@ const resources = {
               result: "Hash Result:",
               steps: "Hashing Steps",
               steps_desc: "Step-by-step visualization coming soon...",
-              intro: "Secure Hash Algorithms (SHA) is a family of cryptographic hash functions designed to provide fixed-size message digests with collision resistance."
-            }
+              intro:
+                "Secure Hash Algorithms (SHA) is a family of cryptographic hash functions designed to provide fixed-size message digests with collision resistance.",
+            },
           },
           md5: {
             name: "MD5",
@@ -70,6 +71,10 @@ const resources = {
               public: "public-key",
               pki: "PKI",
             },
+            intro:
+              "RSA (Rivest-Shamir-Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. The encryption key is public and distinct from the decryption key which is kept secret (private).",
+            security:
+              "The security of RSA relies on the practical difficulty of factoring the product of two large prime numbers.",
           },
           ecc: {
             name: "Elliptic Curve Cryptography",
@@ -127,8 +132,9 @@ const resources = {
               result: "哈希结果：",
               steps: "哈希步骤",
               steps_desc: "分步骤可视化即将推出...",
-              intro: "安全散列算法(Secure Hash Algorithms) 是密码散列函数中的一族，用于生成具有抗碰撞性质且长度固定的消息摘要。"
-            }
+              intro:
+                "安全散列算法(Secure Hash Algorithms) 是密码散列函数中的一族，用于生成具有抗碰撞性质且长度固定的消息摘要。",
+            },
           },
           md5: {
             name: "MD5",
@@ -148,6 +154,9 @@ const resources = {
               public: "公钥",
               pki: "PKI",
             },
+            intro:
+              "RSA (Rivest-Shamir-Adleman) 是第一个公钥密码系统，广泛用于安全数据传输。加密密钥是公共的，与保持秘密的解密密钥不同。",
+            security: "RSA的安全性依赖于大数分解的实际难度。",
           },
           ecc: {
             name: "椭圆曲线密码",

@@ -1,0 +1,16 @@
+{
+  "categories": {
+    "asymmetric": {
+      "rsa": {
+        "name": "RSA 算法",
+        "description": "基于大数分解的公钥密码系统，用于加密和数字签名",
+        "intro": "RSA（Rivest-Shamir-Adleman）是最早的公钥密码系统之一，被广泛用于安全数据传输。加密密钥是公开的，与保密的解密密钥（私钥）不同。",
+        "security": "RSA 的安全性依赖于分解两个大素数乘积的实际困难性 - 即分解问题。",
+        "tags": {
+          "public": "公钥",
+          "pki": "PKI"
+        }
+      }
+    }
+  }
+} 
