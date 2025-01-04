@@ -179,13 +179,18 @@ const getInitialLanguage = () => {
   return "en";
 };
 
-use(initReactI18next).init({
-  resources,
-  lng: getInitialLanguage(),
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
+if (typeof window !== "undefined") {
+  use(initReactI18next).init({
+    resources,
+    lng: getInitialLanguage(),
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+    react: {
+      useSuspense: false,
+    },
+  });
+}
 
 export default i18n;

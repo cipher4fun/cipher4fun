@@ -4,9 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export default function LanguageSwitch() {
   const [mounted, setMounted] = useState(false);
-  const { i18n } = useTranslation(undefined, {
-    useSuspense: false
-  });
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     setMounted(true);
@@ -28,9 +26,7 @@ export default function LanguageSwitch() {
       className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-white/60 hover:text-white hover:bg-[#1A1D24] transition-all"
     >
       <LanguageIcon className="w-5 h-5" />
-      <span className="text-sm">
-        {i18n.language === "en" ? "中文" : "EN"}
-      </span>
+      <span className="text-sm">{i18n.language === "en" ? "中文" : "EN"}</span>
     </button>
   );
-} 
+}
