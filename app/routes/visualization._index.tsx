@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import MainLayout from "~/components/MainLayout";
 import { Link } from "@remix-run/react";
-import { useTranslation } from '~/hooks/useTranslation';
+import { useTranslation } from "~/hooks/useTranslation";
 import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
@@ -142,7 +142,14 @@ export default function Visualization() {
                 <Link
                   key={algo.id}
                   to={`/visualization/${algo.id}`}
-                  className="contents"
+                  className="block"
+                  onClick={(e) => {
+                    if (window.innerWidth < 768 && isOpen) {
+                      e.preventDefault();
+                      setIsOpen(false);
+                      return;
+                    }
+                  }}
                 >
                   <Card
                     className="border-none bg-[#1A1D24] hover:scale-105 transition-transform"
