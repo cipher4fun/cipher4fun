@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 
 export default function LanguageSwitch() {
   const [mounted, setMounted] = useState(false);
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation(undefined, {
+    useSuspense: false
+  });
 
   useEffect(() => {
     setMounted(true);

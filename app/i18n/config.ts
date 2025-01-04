@@ -172,16 +172,20 @@ const resources = {
   },
 };
 
-// 只在客户端初始化 i18n
-if (typeof window !== "undefined") {
-  use(initReactI18next).init({
-    resources,
-    lng: localStorage.getItem("preferred_language") || "en",
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false,
-    },
-  });
-}
+const getInitialLanguage = () => {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("preferred_language") || "en";
+  }
+  return "en";
+};
+
+use(initReactI18next).init({
+  resources,
+  lng: getInitialLanguage(),
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;
