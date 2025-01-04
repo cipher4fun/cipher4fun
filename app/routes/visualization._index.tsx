@@ -58,7 +58,7 @@ export default function Visualization() {
           description: mounted
             ? t("categories.digest.sha.description")
             : "SHA-1/SHA-2/SHA-3 family. Produces fixed-size message digests",
-          stages: 10,
+          stages: 5,
           tags: mounted
             ? [
                 t("categories.digest.sha.tags.digest"),
@@ -96,7 +96,7 @@ export default function Visualization() {
           description: mounted
             ? t("categories.asymmetric.rsa.description")
             : "Public-key crypto based on factoring. Used for encryption & signatures",
-          stages: 18,
+          stages: 5,
           tags: mounted
             ? [
                 t("categories.asymmetric.rsa.tags.public"),
@@ -113,7 +113,7 @@ export default function Visualization() {
           description: mounted
             ? t("categories.asymmetric.ecc.description")
             : "Public-key crypto using elliptic curves. Shorter keys than RSA",
-          stages: 16,
+          stages: 4,
           tags: mounted
             ? [
                 t("categories.asymmetric.ecc.tags.public"),
