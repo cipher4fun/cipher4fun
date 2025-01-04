@@ -1,5 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Card, CardHeader, Image } from "@nextui-org/react";
+import {
+  Card,
+  CardHeader,
+  Image,
+  CardBody,
+  CardFooter,
+} from "@nextui-org/react";
 import MainLayout from "~/components/MainLayout";
 import { Link } from "@remix-run/react";
 import { useTranslation } from "react-i18next";
@@ -145,40 +151,37 @@ export default function Visualization() {
                   className="contents"
                 >
                   <Card
-                    className="h-[400px] border-none bg-[#1A1D24] hover:scale-105 transition-transform"
+                    className="border-none bg-[#1A1D24] hover:scale-105 transition-transform"
                     isPressable
                   >
-                    <div className="block h-full w-full">
-                      <div className="relative w-full h-[60%]">
-                        <Image
-                          removeWrapper
-                          alt={algo.name}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          src={algo.image}
-                        />
+                    <CardHeader className="px-5 pt-5 pb-0">
+                      <h3 className="text-xl font-bold text-white">
+                        {algo.name}
+                      </h3>
+                    </CardHeader>
+
+                    <CardBody className="px-5 py-3">
+                      <p className="text-sm text-white/70 line-clamp-3">
+                        {algo.description}
+                      </p>
+                    </CardBody>
+
+                    <CardFooter className="px-5 pt-1 flex justify-between items-center">
+                      <div className="flex flex-wrap gap-1">
+                        {algo.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 bg-violet-500/20 border border-violet-500/30 text-xs rounded-full text-violet-400 font-medium"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
                       </div>
-                      <CardHeader className="flex flex-col items-start p-3 h-[40%] text-left">
-                        <div className="flex flex-wrap gap-1 mb-1 justify-start">
-                          {algo.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="px-2 py-0.5 bg-violet-500/80 text-xs rounded-full text-white font-medium"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-                        <h3 className="text-base font-bold text-white">
-                          {algo.name}
-                        </h3>
-                        <p className="text-sm text-white/80 line-clamp-2">
-                          {algo.description}
-                        </p>
-                        <div className="text-xs text-white/60 mt-auto">
-                          {algo.stages} stages
-                        </div>
-                      </CardHeader>
-                    </div>
+
+                      <div className="flex items-center text-xs text-white/60 ml-4">
+                        {algo.stages} stages
+                      </div>
+                    </CardFooter>
                   </Card>
                 </Link>
               ))}
