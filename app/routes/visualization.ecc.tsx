@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import AlgorithmLayout from "~/components/AlgorithmLayout";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from '~/hooks/useTranslation';
 import { useEffect, useState } from "react";
 import { ECC } from "~/utils/ecc";
 import EccPublicKeyGeneration from "~/components/visualization/EccPublicKeyGeneration";

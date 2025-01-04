@@ -1,14 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
-import {
-  Card,
-  CardHeader,
-  Image,
-  CardBody,
-  CardFooter,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import MainLayout from "~/components/MainLayout";
 import { Link } from "@remix-run/react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from '~/hooks/useTranslation';
 import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LanguageIcon } from "@heroicons/react/24/outline";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from '~/hooks/useTranslation';
 
 export default function LanguageSwitch() {
   const [mounted, setMounted] = useState(false);

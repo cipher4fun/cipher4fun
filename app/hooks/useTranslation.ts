@@ -1,6 +1,14 @@
-import i18n, { use } from "i18next";
-import { initReactI18next } from "react-i18next";
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  useCallback,
+  createElement,
+} from "react";
 
+// TODO: workaround for remix-i18next ssr error
+// Find a better way to do this
 const resources = {
   en: {
     translation: {
@@ -172,23 +180,57 @@ const resources = {
   },
 };
 
-const getInitialLanguage = () => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("preferred_language") || "en";
-  }
-  return "en";
-};
+// 创建 Context
+const I18nContext = createContext<{
+  language: string;
+  setLanguage: (lang: string) => void;
+}>({ language: "en", setLanguage: () => {} });
 
-use(initReactI18next).init({
-  resources,
-  lng: getInitialLanguage(),
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-  react: {
-    useSuspense: false,
-  },
-});
+// Provider 组件
+export function I18nProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguage] = useState("en");
 
-export default i18n;
+  useEffect(() => {
+    const savedLang = localStorage.getItem("preferred_language");
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+  }, []);
+
+  const value = { language, setLanguage };
+  return createElement(I18nContext.Provider, { value }, children);
+}
+
+// Hook
+export function useTranslation() {
+  const { language, setLanguage } = useContext(I18nContext);
+
+  const t = useCallback(
+    (key: string) => {
+      const keys = key.split(".");
+      let result = resources[language as "en" | "zh"]["translation"];
+      for (const k of keys) {
+        result = result?.[k];
+      }
+      return result || key;
+    },
+    [language]
+  ); // 依赖于 language
+
+  const changeLanguage = (newLang: "en" | "zh") => {
+    setLanguage(newLang);
+    localStorage.setItem("preferred_language", newLang);
+  };
+
+  const i18n = {
+    language,
+    changeLanguage,
+  };
+
+  return {
+    t,
+    i18n,
+    language,
+    changeLanguage,
+  };
+}

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import AlgorithmLayout from "~/components/AlgorithmLayout";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from '~/hooks/useTranslation';
 import { useEffect, useState } from "react";
 import { RSA } from "~/utils/rsa";
 import RsaPrimeSelection from "~/components/visualization/RsaPrimeSelection";

@@ -1,9 +1,10 @@
 import { Link } from "@remix-run/react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "~/hooks/useTranslation";
 import { useEffect, useState } from "react";
 
 export default function Sidebar() {
   const { t } = useTranslation();
+  console.log(t);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,4 +29,4 @@ export default function Sidebar() {
       </div>
     </div>
   );
-} 
+}

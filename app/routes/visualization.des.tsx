@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import AlgorithmLayout from "~/components/AlgorithmLayout";
 import FeistelNetwork from "~/components/visualization/FeistelNetwork";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "~/hooks/useTranslation";
 import { useEffect, useState } from "react";
 
 export const meta: MetaFunction = () => {
