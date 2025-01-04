@@ -29,6 +29,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^15.4.0",
+    "react-icons": "^5.4.0",
     "react-katex": "^3.0.1",
     "remix-utils": "^7.1.0"
   },

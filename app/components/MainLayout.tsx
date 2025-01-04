@@ -11,9 +11,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-
-      {/* Main Content */}
-      <div className="flex-1 bg-[#0D1117]">
+      
+      {/* Main Content - 保持原有宽度和位置 */}
+      <div className="flex-1 ml-64 bg-[#0D1117]">
         <div className="fixed top-4 right-4 z-10">
           <ClientOnly fallback={null}>{() => <LanguageSwitch />}</ClientOnly>
         </div>
