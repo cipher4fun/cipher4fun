@@ -142,7 +142,7 @@ export default function Visualization() {
                 <Link
                   key={algo.id}
                   to={`/visualization/${algo.id}`}
-                  className="block"
+                  className="block w-full"
                   onClick={(e) => {
                     if (window.innerWidth < 768 && isOpen) {
                       e.preventDefault();
@@ -152,11 +152,11 @@ export default function Visualization() {
                   }}
                 >
                   <Card
-                    className="border-none bg-[#1A1D24] hover:scale-105 transition-transform"
+                    className="border-none bg-[#1A1D24] hover:scale-105 transition-transform w-full h-full"
                     isPressable
                   >
-                    <CardHeader className="px-5 pt-5 pb-0">
-                      <h3 className="text-xl font-bold text-white">
+                    <CardHeader className="px-5 pt-5 pb-0 flex-col items-start">
+                      <h3 className="text-xl font-bold text-white w-full text-left">
                         {algo.name}
                       </h3>
                     </CardHeader>
