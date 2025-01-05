@@ -53,8 +53,8 @@ export default function Sidebar() {
         </div>
 
         {/* Social Links */}
-        <div className="p-4 ">
-          <div className="flex items-center justify-between text-white/60">
+        <div className="p-4">
+          <div className="flex items-center gap-4 text-white/60">
             <a
               href="https://x.com/wfnuser"
               target="_blank"
@@ -71,7 +71,7 @@ export default function Sidebar() {
             >
               <FaTelegram size={20} />
             </a>
-            <a
+            {/* <a
               href="https://according.work"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,6 +89,16 @@ export default function Sidebar() {
                   fill="currentColor"
                 />
               </svg>
+            </a> */}
+            <a
+              href="https://t.me/+_a-io1KqMIc5ZjQ9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-violet-400 transition-colors"
+            >
+              <span className="text-xs">
+                Follow me for updates
+              </span>
             </a>
           </div>
         </div>
